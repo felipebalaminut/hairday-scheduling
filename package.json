@@ -1,0 +1,14 @@
+{
+  "name": "hairday",
+  "description": "Web application to view scheduled haircuts.",
+  "author": "Felipe Fonseca",
+  "scripts": {
+    "server": "json-server --watch --port 3333 db.json"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "homepage": "https://github.com/felipebalaminut/hairday-scheduling#readme",
+  "dependencies": {
+    "json-server": "^1.0.0-alpha.21"
+  }
+}
