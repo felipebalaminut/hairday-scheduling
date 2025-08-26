@@ -1,4 +1,6 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   target: "web",
@@ -16,7 +18,36 @@ module.exports = {
     port: 3000, // porta do servidor
     open: true, // abre o navegador automaticamente
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "public", "index.html"),
+      favicon: path.resolve(__dirname, "public", "scissors.svg"),
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src", "assets"),
+          to: path.resolve(__dirname, "dist", "src", "assets"),
+        },
+      ],
+    }),
+  ],
   module: {
-    rules: [{}],
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        teste: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
+    ],
   },
 };
