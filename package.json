@@ -3,12 +3,15 @@
   "description": "Web application to view scheduled haircuts.",
   "author": "Felipe Fonseca",
   "scripts": {
-    "server": "json-server --watch --port 3333 db.json"
+    "server": "json-server --watch --port 3333 db.json",
+    "build": "webpack"
   },
   "license": "ISC",
   "type": "commonjs",
-  "homepage": "https://github.com/felipebalaminut/hairday-scheduling#readme",
-  "dependencies": {
-    "json-server": "^1.0.0-alpha.21"
+  "devDependencies": {
+    "json-server": "^1.0.0-alpha.21",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
